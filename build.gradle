@@ -185,8 +185,8 @@ artifacts {
 
 // Jar with dependencies
 // ---------------------
-task buildGoogleApiConfigGen(type: Jar) {
-  baseName = googleApiConfigGenName + '-with-deps'
+task buildApplication(type: Jar) {
+  baseName = archivesBaseName + '-with-deps'
   from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
   with jar
   manifest {

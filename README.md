@@ -48,7 +48,7 @@ $ git submodule update --recursive --init
 ```
 Build source code
 ```
-$ ./gradlew buildGoogleApiConfigGen
+$ ./gradlew buildApplication
 ```
 For running tests, you need to have `protoc` in your path. If you don't
 already have protoc version 3, you can download
@@ -99,17 +99,17 @@ apis:
 
 ### Executing the Google API Compiler
 
-Once the jar 'gapi-config-gen-with-deps-0.0.5-SNAPSHOT.jar' is built under the
+Once the jar 'api-compiler-with-deps-0.0.5-SNAPSHOT.jar' is built under the
 build/libs directory, you can run the jar using the following command:
 
 ```
-$ alias gapi-config-gen='java -jar <path to gapi-config-gen-with-deps-0.0.5-SNAPSHOT.jar>'
+$ alias api-compiler='java -jar <path to api-compiler-with-deps-0.0.5-SNAPSHOT.jar>'
 DESCRIPTOR_FILE=<PATH TO out.descriptor>
 CONFIG_FILE=<path to yaml file>
 JSON_FILE_NAME=<json output file name>
 BINARY_FILE_NAME=<binary output file name>
 
-gapi-config-gen \
+api-compiler \
 --configs $CONFIG_FILE \
 --descriptor $DESCRIPTOR_FILE \
 --json_out $JSON_FILE_NAME \
@@ -127,12 +127,12 @@ Either format can be used to configure a Google Cloud Endpoints API.
 Validate an OpenAPI Specification and create the corresponding service configuration.
 
 ```
-alias gapi-config-gen='java -jar <path to gapi-service-config-gen-with-deps-0.0.5-SNAPSHOT.jar>'
+alias api-compiler='java -jar <path to api-compiler-with-deps-0.0.5-SNAPSHOT.jar>'
 OPENAPI_FILE=<OpenAPI Spec filename>
 JSON_FILE_NAME=<json output file name>
 BINARY_FILE_NAME=<binary output file name>
 
-gapi-config-gen \
+api-compiler \
 --openapi $OPENAPI_FILE \
 --json_out $JSON_FILE_NAME \
 --bin_out $BINARY_FILE_NAME
